@@ -15,7 +15,7 @@ import com.HelthCare.Model.User;
 import com.HelthCare.Service.UserRepository;
 
 @Path("/userss")
-public class UserResource {
+public class userResource {
 	
 	UserRepository ur = new UserRepository();
 	
