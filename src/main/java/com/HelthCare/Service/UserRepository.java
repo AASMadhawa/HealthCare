@@ -129,13 +129,23 @@ public class UserRepository {
 	}
 	
 	public void updateUser(User u5) {
-		String sql = "UPDATE users SET u_fname = ? WHERE u_id = ?";
+		String sql = "UPDATE users SET u_fname = ?, u_lname = ?, u_age = ?, u_address = ?, u_sex = ?, u_email = ?, u_username = ?, u_password = ?, u_type = ?, u_contact = ?  WHERE u_id = ?";
 		
 		try {
 			PreparedStatement st = DatabaseClass.getDBconnection().prepareStatement(sql);
-			st.setString(1,u5.getU_fname());
-			st.setInt(2,u5.getU_id());
 			
+			st.setInt(1,u5.getU_id());
+			st.setString(2,u5.getU_fname());
+			st.setString(3,u5.getU_lname());
+			st.setInt(4,u5.getU_age());
+			st.setString(5,u5.getU_address());
+			st.setString(6,u5.getU_sex());
+			st.setString(7,u5.getU_email());
+			st.setString(8,u5.getU_username());
+			st.setString(9,u5.getU_password());
+			st.setString(10,u5.getU_type());
+			st.setInt(11,u5.getU_contact());
+
 			st.executeUpdate();
 		}catch (Exception e) {
 			System.out.println(e);
